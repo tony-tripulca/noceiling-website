@@ -1,3 +1,12 @@
+import React from "react";
+import MainNav from "../components/MainNav";
+import SocialNav from "../components/SocialNav";
+
 export default function Home() {
-  return <h1>Home</h1>;
+  return (
+    <React.Fragment>
+      <SocialNav></SocialNav>
+      <MainNav></MainNav>
+    </React.Fragment>
+  );
 }
