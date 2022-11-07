@@ -1,12 +1,23 @@
-import { Backdrop, Box, Container, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
-import Banner_1 from "../assets/banner-slides/banner_1.jpg";
-import Banner_2 from "../assets/banner-slides/banner_2.jpg";
-import Banner_3 from "../assets/banner-slides/banner_3.jpg";
+import Banner1 from "../assets/banner-slides/banner_1.jpg";
+import Banner2 from "../assets/banner-slides/banner_2.jpg";
+import Banner3 from "../assets/banner-slides/banner_3.jpg";
 
 export default function PageBanner() {
+  const imgStyle = {
+    height: "100vh",
+  };
+
+  const legendStyle = {
+    width: "300px",
+    height: "200px",
+    "background-color": "black",
+    "z-index": "99",
+  };
+
   return (
     <Box
       sx={{
@@ -24,20 +35,23 @@ export default function PageBanner() {
           emulateTouch={true}
           interval={3000}
           infiniteLoop={true}
-          showIndicators={true}
+          showIndicators={false}
           showStatus={false}
           showThumbs={false}
+          dynamicHeight={true}
         >
-          <div>
-            <img src={Banner_1} />
-            <p className="legend">Legend 1</p>
+          <div style={{ display: "flex", "justify-content": "center" }}>
+            <img src={Banner1} alt="Banner 1" style={imgStyle} />
+            <p className="legend" style={legendStyle}>
+              Legend 1
+            </p>
           </div>
           <div>
-            <img src={Banner_2} />
+            <img src={Banner2} alt="Banner 2" style={imgStyle} />
             <p className="legend">Legend 2</p>
           </div>
           <div>
-            <img src={Banner_3} />
+            <img src={Banner3} alt="Banner 3" style={imgStyle} />
             <p className="legend">Legend 3</p>
           </div>
         </Carousel>
@@ -48,25 +62,8 @@ export default function PageBanner() {
             width: "100%",
             height: "100%",
             backgroundColor: "rgba(0,0,0,0.5)",
-            display: "flex",
-            justifyContent: "center",
           }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              alignSelf: "center",
-              backgroundColor: "black",
-              marginTop: 25,
-              paddingTop: 5,
-              paddingBottom: 5,
-              paddingLeft: 10,
-              paddingRight: 10,
-            }}
-          >
-            
-          </Box>
-        </Box>
+        ></Box>
       </Box>
       <Typography>
         Enim magna anim nisi aliqua elit aute aute officia aute velit culpa est.
