@@ -2,22 +2,13 @@ import { Box, Typography } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
+import "../styles/PageBanner.scss";
+
 import Banner1 from "../assets/banner-slides/banner_1.jpg";
 import Banner2 from "../assets/banner-slides/banner_2.jpg";
 import Banner3 from "../assets/banner-slides/banner_3.jpg";
 
 export default function PageBanner() {
-  const imgStyle = {
-    height: "100vh",
-  };
-
-  const legendStyle = {
-    width: "300px",
-    height: "200px",
-    "background-color": "black",
-    "z-index": "99",
-  };
-
   return (
     <Box
       sx={{
@@ -30,6 +21,7 @@ export default function PageBanner() {
         }}
       >
         <Carousel
+          className="carousel"
           showArrows={true}
           autoPlay={true}
           emulateTouch={true}
@@ -39,31 +31,36 @@ export default function PageBanner() {
           showStatus={false}
           showThumbs={false}
           dynamicHeight={true}
+          animationHandler="fade"
+          swipeable={false}
         >
-          <div style={{ display: "flex", "justify-content": "center" }}>
-            <img src={Banner1} alt="Banner 1" style={imgStyle} />
-            <p className="legend" style={legendStyle}>
-              Legend 1
-            </p>
+          <div className="banner-holder">
+            <img className="banner" src={Banner1} alt="Banner 1" />
+            <div className="backdrop"></div>
+            <div className="legend">
+              <p className="lead">Low Risk</p>
+              <p className="text">We invest in the entire stock market</p>
+            </div>
           </div>
-          <div>
-            <img src={Banner2} alt="Banner 2" style={imgStyle} />
-            <p className="legend">Legend 2</p>
+          <div className="banner-holder">
+            <img className="banner" src={Banner2} alt="Banner 2" />
+            <div className="backdrop"></div>
+            <div className="legend">
+              <p className="lead">Stress-Free</p>
+              <p className="text">
+                Long-term investment partnes who will guide you
+              </p>
+            </div>
           </div>
-          <div>
-            <img src={Banner3} alt="Banner 3" style={imgStyle} />
-            <p className="legend">Legend 3</p>
+          <div className="banner-holder">
+            <img className="banner" src={Banner3} alt="Banner 3" />
+            <div className="backdrop"></div>
+            <div className="legend">
+              <p className="lead">Low Cost</p>
+              <p className="text">One of the lowest fees in the world</p>
+            </div>
           </div>
         </Carousel>
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0,0,0,0.5)",
-          }}
-        ></Box>
       </Box>
       <Typography>
         Enim magna anim nisi aliqua elit aute aute officia aute velit culpa est.
